@@ -1,0 +1,39 @@
+{
+  "name": "nodejs-ex",
+  "version": "1.0.0",
+  "description": "simple locations API developed by juma",
+  "main": "mains.js",
+  "scripts": {
+    "test": "tmains",
+    "start": "node mains.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theambidextrous/nodejs-ex.git"
+  },
+  "keywords": [
+    "nodejs",
+    "rest",
+    "api",
+    "mongo",
+    "passportjs",
+    "jwt",
+    "locations",
+    "api"
+  ],
+  "author": "I.O. Juma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theambidextrous/nodejs-ex/issues"
+  },
+  "homepage": "https://github.com/theambidextrous/nodejs-ex#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.9",
+    "morgan": "^1.9.1"
+  }
+}
