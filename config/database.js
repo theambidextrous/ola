@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 //staging
 // const mongoDB = 'mongodb://localhost/ola';
 //production - openshift server
-const mongoDB = '127.0.0.1:27017/' + process.env.OPENSHIFT_APP_NAME;
-if (process.env.OPENSHIFT_MONGODB_DB_URL) {
-    mongoDB = process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME;
-}
+const mongoDB = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME;
+// if (process.env.OPENSHIFT_MONGODB_DB_URL) {
+//     mongoDB = process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME;
+// }
 console.log(mongoDB);
 
 mongoose.connect(mongoDB, {
