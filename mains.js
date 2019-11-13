@@ -61,7 +61,7 @@ app.get('/policy', function(req, res){
 });
 //validate
 function validateUser(req, res, next) {
-    jwt.verify(req.headers['ola-access-token'], req.app.get('secretKey'), function(err, decoded) {
+    jwt.verify(req.headers['skylar-token'], req.app.get('secretKey'), function(err, decoded) {
       if (err) {
         res.json({
             status:"01",
