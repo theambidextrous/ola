@@ -2,7 +2,7 @@ const olaModel = require('../models/ola');
 module.exports = {
 getById: function(req, res, next) {
     //console.log(req.body);
-    olaModel.find(req.params.locationid, function(err, locInfo){
+    olaModel.find({locationid: req.params.locationid}, function(err, locInfo){
     if (err) {
     next(err);
     } else {
@@ -12,7 +12,7 @@ getById: function(req, res, next) {
 },
 getByCountry: function(req, res, next) {
 //console.log(req.body);
-    olaModel.find(req.params.countrycode, function(err, locInfo){
+    olaModel.find({countrycode: req.params.countrycode}, function(err, locInfo){
         if (err) {
         next(err);
         } else {
