@@ -22,7 +22,7 @@ getByCountry: function(req, res, next) {
 },
 getByRegion: function(req, res, next) {
 //console.log(req.body);
-    olaModel.find(req.params.region, function(err, locInfo){
+    olaModel.find({region: req.params.region}, function(err, locInfo){
         if (err) {
         next(err);
         } else {
@@ -31,7 +31,7 @@ getByRegion: function(req, res, next) {
     });
 },
 getByCategory: function(req, res, next){
-    olaModel.find(req.params.category, function(err, locInfo){
+    olaModel.find({category: req.params.category}, function(err, locInfo){
         if (err) {
         next(err);
         } else {
@@ -40,7 +40,7 @@ getByCategory: function(req, res, next){
     });
 },
 getByLocation: function(req, res,next){
-    olaModel.find(req.params.location, function(err, locInfo){
+    olaModel.find({location: req.params.location}, function(err, locInfo){
         if (err) {
         next(err);
         } else {
