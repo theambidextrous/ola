@@ -2,7 +2,7 @@ const olaModel = require('../models/ola');
 module.exports = {
 getById: function(req, res, next) {
     //console.log(req.body);
-    olaModel.findById(req.params.locationid, function(err, locInfo){
+    olaModel.find(req.params.locationid, function(err, locInfo){
     if (err) {
     next(err);
     } else {
@@ -12,7 +12,7 @@ getById: function(req, res, next) {
 },
 getByCountry: function(req, res, next) {
 //console.log(req.body);
-    olaModel.findById(req.params.countrycode, function(err, locInfo){
+    olaModel.find(req.params.countrycode, function(err, locInfo){
         if (err) {
         next(err);
         } else {
@@ -22,7 +22,7 @@ getByCountry: function(req, res, next) {
 },
 getByRegion: function(req, res, next) {
 //console.log(req.body);
-    olaModel.findById(req.params.region, function(err, locInfo){
+    olaModel.find(req.params.region, function(err, locInfo){
         if (err) {
         next(err);
         } else {
@@ -31,7 +31,7 @@ getByRegion: function(req, res, next) {
     });
 },
 getByCategory: function(req, res, next){
-    olaModel.findById(req.params.category, function(err, locInfo){
+    olaModel.find(req.params.category, function(err, locInfo){
         if (err) {
         next(err);
         } else {
@@ -40,7 +40,7 @@ getByCategory: function(req, res, next){
     });
 },
 getByLocation: function(req, res,next){
-    olaModel.findById(req.params.location, function(err, locInfo){
+    olaModel.find(req.params.location, function(err, locInfo){
         if (err) {
         next(err);
         } else {
