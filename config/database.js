@@ -8,7 +8,7 @@ var port = process.env.MONGODB_SERVICE_PORT || 27017;
 var database = process.env.MONGODB_DATABASE || 'openlocationsapidb';
 var mongoDB = 'mongodb://' + username + ':' + password +'@' + host + ':' + port + '/' + database + '?authSource=admin';
 //console.log(mongoDB);
-mongoose.connect('mongodb://openlocationsapimongodb:27017/openlocationsapidb', {
+mongoose.connect('mongodb://openlocationsapi:openlocationsapi@openlocationsapimongodb:27017/openlocationsapidb', {
     useNewUrlParser: true
 }).then(() => {
     console.log('Connected to mongo service...');
