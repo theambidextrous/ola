@@ -4,14 +4,14 @@ const olaController = require('../app/api/controllers/ola');
 //get
 router.get('/', olaController.getAll);
 router.get('/:locationid', olaController.getById);
-router.get('/:countrycode', olaController.getByCountry);
-router.get('/:region', olaController.getByRegion);
-router.get('/:category', olaController.getByCategory);
-router.get('/:location', olaController.getByLocation);
+router.get('/countries/:countrycode', olaController.getByCountry);
+router.get('/regions/:region', olaController.getByRegion);
+router.get('/categories/:category', olaController.getByCategory);
+router.get('/locations/:location', olaController.getByLocation);
 //post
 router.post('/create', olaController.create);
 //put/update
-router.put('/:movieId', olaController.updateById);
+router.put('/:id', olaController.updateById);
 //delete
-router.delete('/:movieId', olaController.deleteById);
+router.delete('/:id', olaController.deleteById);
 module.exports = router;
