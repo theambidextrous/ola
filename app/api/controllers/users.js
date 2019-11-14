@@ -12,8 +12,8 @@ module.exports = {
        next(err);
       else
         var server 	= mailer.server.connect({
-            user:	req.app.get('smtp_user'),
-            password: req.app.get('smtp_pass'),
+            user:	process.env.SMTP_USER,
+            password: process.env.SMTP_PASS,
             host:	"mail.howto-daily.com",
             ssl: false,
             port: 587

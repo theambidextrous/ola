@@ -1,11 +1,11 @@
 
 
 FORMAT: 1A
-HOST: http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/
+HOST: http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/
 
 # Open Locations API (OLAPI)
 
-OLAPI is a simple RESTful API developed by [Iddriss O. Juma](http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/about) using Nodejs+Mongodb. It enables to 
+OLAPI is a simple RESTful API developed by [Iddriss O. Juma](http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/about) using Nodejs+Mongodb. It enables to 
 query for locations i.e. cities, countries, villages, hotels, rivers, mountains etc via 
 simple REST get/post requests.
 
@@ -13,7 +13,7 @@ OLAPI is opensource, it is released under ISC/BSD license. have fun!
 
 ## Context URL
 Open Locations API is hosted by Redhat's **Openshift Online** here 
-***[http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com](http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com)***
+***[http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com](http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com)***
 
 ## User Authentication
 
