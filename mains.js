@@ -7,7 +7,10 @@ const mongoose = require('./config/database');
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var jwt = require('jsonwebtoken');
 const app = express();
-app.set('secretKey', 'dWR3453%$#fc342sddcFd3$4@$$^57gbh6*665453fffc#@S2w121x');
+app.set('secretKey', process.env.JWT_SECRET);//dWR3453%$#fc342sddcFd3$4@$$^57gbh6*665453fffc#@S2w121x;
+app.set('smtp_user', process.env.SMTP_USER);
+app.set('smtp_pass', process.env.SMTP_PASS);
+console.log(process.env.SMTP_USER);
 //conn
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //
