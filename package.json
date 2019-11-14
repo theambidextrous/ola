@@ -37,6 +37,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.9",
     "morgan": "^1.9.1",
+    "save": "^2.4.0",
     "util": "^0.12.1"
   }
 }
