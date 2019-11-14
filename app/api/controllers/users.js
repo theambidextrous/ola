@@ -26,7 +26,7 @@ module.exports = {
                     rejectUnauthorized: false
                 },
                 ignoreTLS: true
-            });
+            });//
             let info = await transporter.sendMail({
                 from: '"Open Locations API 👻" <idd.otuya@outlook.com>',
                 to: req.body.email,
