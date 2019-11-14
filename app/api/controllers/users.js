@@ -11,6 +11,8 @@ module.exports = {
       if (err) 
        next(err);
       else
+        console.log(process.env.SMTP_USER);
+        console.log(process.env.SMTP_PASS);
         var server 	= mailer.server.connect({
             user:	process.env.SMTP_USER,
             password: process.env.SMTP_PASS,
