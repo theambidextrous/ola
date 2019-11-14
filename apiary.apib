@@ -25,7 +25,6 @@ Open Locations API is hosted by Redhat's **Openshift Online** here
         Content-type: application/json
         
     +Body 
-    
         {
             "name" : "Your full name",
             "email" : "avalidmail@yourmailer.com",
@@ -80,6 +79,7 @@ your authentication request is successful, you will get a token, which you will 
 ## Query for locations
 Now that you have access, let us start the play!
 ### Get all locations
+
 + Endpoint [/api/v1/ola]
 + Method [get]
 + Request (application/json)
@@ -120,7 +120,8 @@ Now that you have access, let us start the play!
 + Endpoint [/api/v1/ola/{locationid}]
 + Method [get]
 + Request (application/json)
-    +Headers 
+
+    + Headers 
     
         skylar-token: 'yourtokenhere'
         Content-type: application/json
@@ -157,10 +158,12 @@ Now that you have access, let us start the play!
             }
 
 ### Get locations by region
+
 + Endpoint [/api/v1/ola/regions/{region}]
 + Method [get]
 + Request (application/json)
-    +Headers 
+
+    + Headers 
     
         skylar-token: 'yourtokenhere'
         Content-type: application/json
@@ -225,10 +228,12 @@ Now that you have access, let us start the play!
             }
 
 ### Get locations by Country
+
 + Endpoint [/api/v1/ola/countries/{countrycode}]
 + Method [get]
 + Request (application/json)
-    +Headers 
+
+    + Headers 
     
         skylar-token: 'yourtokenhere'
         Content-type: application/json
@@ -294,10 +299,12 @@ Now that you have access, let us start the play!
 
 
 ### Get locations by Category
+
 + Endpoint [/api/v1/ola/categories/{category}]
 + Method [get]
 + Request (application/json)
-    +Headers 
+
+    + Headers 
     
         skylar-token: 'yourtokenhere'
         Content-type: application/json
