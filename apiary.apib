@@ -3,7 +3,7 @@ HOST: http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-
 
 # Open Locations API (OLAPI)
 
-OLAPI is a simple RESTful API developed by Iddriss O. Juma using Nodejs+Mongodb. It enables to 
+OLAPI is a simple RESTful API developed by [Iddriss O. Juma](http://openlocationsapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/about) using Nodejs+Mongodb. It enables to 
 query for locations i.e. cities, countries, villages, hotels, rivers, mountains etc via 
 simple REST get/post requests.
 
@@ -70,5 +70,289 @@ your authentication request is successful, you will get a token, which you will 
                 "data": {
                     "user": true,
                     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkY2JjZDQ0YjdhYTdmMDAxYTEzYmY5YSIsImlhdCI6MTU3MzcxOTgyNywiZXhwIjoxNTczNzIzNDI3fQ.SWEdDmSXbnxCvN4uSTYuHAtGAEXwN9I5riW_L67fS0M"
+                }
+            }
+
+## Query for locations
+Now that you have access, let us start the play!
+### Get all locations
++ Endpoint [/api/v1/ola]
++ Method [get]
++ Request (application/json)
+    +Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+
+            {
+                "status": "00",
+                "message": "success",
+                "data": {
+                    "locations": [
+                        {
+                            "locationid": "1100443356",
+                            "location": "Abarati",
+                            "category": "city"
+                        },
+                        
+                        {
+                            "locationid": "1100443371",
+                            "location": "Airport View",
+                            "category": "city"
+                        }
+                    ]
+                }
+            }
+
+### Get location details
++ Endpoint [/api/v1/ola/{locationid}]
++ Method [get]
++ Request (application/json)
+    +Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+
+            {
+                "status": "00",
+                "message": "Success",
+                "data": {
+                    "location": [
+                        {
+                            "_id": "5dcbe26dba57590019138eeb",
+                            "locationid": "1100446977",
+                            "location": "Uasin Gishu",
+                            "category": "County",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0",
+                            "long": "0",
+                            "elevfeet": "0",
+                            "popest": "0",
+                            "country": "Kenya",
+                            "__v": 0
+                        }
+                    ]
+                }
+            }
+
+### Get locations by region
++ Endpoint [/api/v1/ola/regions/{region}]
++ Method [get]
++ Request (application/json)
+    +Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+
+            {
+                "status": "00",
+                "message": "Success",
+                "data": {
+                    "location": [
+                        {
+                            "_id": "5dcbdb7cba5759001913825f",
+                            "locationid": "1100443765",
+                            "location": "Dunan Farm",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.22",
+                            "long": "35.41",
+                            "elevfeet": "8389",
+                            "popest": "22806",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8eba57590019138280",
+                            "locationid": "1100443798",
+                            "location": "Eldoret",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8fba57590019138281",
+                            "locationid": "1100443799",
+                            "location": "Eldoretas",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        }
+                    ]
+                }
+            }
+
+### Get locations by Country
++ Endpoint [/api/v1/ola/countries/{countrycode}]
++ Method [get]
++ Request (application/json)
+    +Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+
+            {
+                "status": "00",
+                "message": "Success",
+                "data": {
+                    "location": [
+                        {
+                            "_id": "5dcbdb7cba5759001913825f",
+                            "locationid": "1100443765",
+                            "location": "Dunan Farm",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.22",
+                            "long": "35.41",
+                            "elevfeet": "8389",
+                            "popest": "22806",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8eba57590019138280",
+                            "locationid": "1100443798",
+                            "location": "Eldoret",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8fba57590019138281",
+                            "locationid": "1100443799",
+                            "location": "Eldoretas",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        }
+                    ]
+                }
+            }
+
+
+### Get locations by Category
++ Endpoint [/api/v1/ola/categories/{category}]
++ Method [get]
++ Request (application/json)
+    +Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+
+            {
+                "status": "00",
+                "message": "Success",
+                "data": {
+                    "location": [
+                        {
+                            "_id": "5dcbdb7cba5759001913825f",
+                            "locationid": "1100443765",
+                            "location": "Dunan Farm",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.22",
+                            "long": "35.41",
+                            "elevfeet": "8389",
+                            "popest": "22806",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8eba57590019138280",
+                            "locationid": "1100443798",
+                            "location": "Eldoret",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        },
+                        {
+                            "_id": "5dcbdb8fba57590019138281",
+                            "locationid": "1100443799",
+                            "location": "Eldoretas",
+                            "category": "city",
+                            "region": "Uasin Gishu",
+                            "countrycode": "KE",
+                            "lat": "0.52",
+                            "long": "35.27",
+                            "elevfeet": "6853",
+                            "popest": "193282",
+                            "country": "Kenya",
+                            "__v": 0
+                        }
+                    ]
                 }
             }
