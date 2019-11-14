@@ -2,7 +2,7 @@ const userModel = require('../models/users');
 const bcrypt = require('bcrypt'); 
 const jwt = require('jsonwebtoken');
 var appRoot = require('app-root-path');
-const mailer = require(appRoot + '/node_modules/emailjs/email.js');
+const mailer = require('nodemailer');//require(appRoot + '/node_modules/emailjs/email.js');
 module.exports = {
  create: function(req, res, next) {
   const key = jwt.sign({id: req.body.email}, req.app.get('secretKey'));
@@ -13,26 +13,27 @@ module.exports = {
       else
         console.log(process.env.SMTP_USER);
         console.log(process.env.SMTP_PASS);
-        var server 	= mailer.server.connect({
-            user:	process.env.SMTP_USER,
-            password: process.env.SMTP_PASS,
-            host:	"mail.howto-daily.com",
-            ssl: false,
-            port: 587
-        });
-        var message	= {
-            text:	"Consumer Key: " + key,
-            from:	"I.O. Juma <idd.otuya@outlook.com>",
-            to:		req.body.name + " <" + req.body.email + ">",
-            subject:	"Open Locations API by juma | Consumer Key",
-        };
-        server.send(message, function(err, message) { 
-            if(err)
-                console.log(err); 
-            else
-                res.json({status: "00", message: "API User added successfully! Check your phone for Consume key", data: null});
-        });
-      
+        async function main() {
+            let transporter = mailer.createTransport({
+                host: 'mail.howto-daily.com',
+                port: 587,
+                secure: false, 
+                auth: {
+                    user: process.env.SMTP_USER,
+                    pass: process.env.SMTP_PASS
+                }
+            });
+            let info = await transporter.sendMail({
+                from: '"Open Locations API 👻" <idd.otuya@outlook.com>',
+                to: req.body.email,
+                subject: 'Open Locations API by juma | Consumer Key ✔',
+                text: 'Consumer Key: ' + key, 
+                html: 'Consumer Key: <b>' + key + '</b>'
+            });
+
+            res.json({status: "00", message: "API User added successfully! Check your phone for Consume key", data: null});
+        }
+        main().catch(console.error);
     });
  },
 authenticate: function(req, res, next) {
