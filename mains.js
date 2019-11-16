@@ -2,12 +2,25 @@ const express = require('express');
 const logger = require('morgan');
 const locations = require('./routes/ola') ;
 const users = require('./routes/users');
+require('dotenv').config();
+//NEW ROUTES
+const blocs_other_names = require('./routes/blocs_other_names');
+const states_borders = require('./routes/states_borders');
+const states_calling_codes = require('./routes/states_calling_codes');
+const states_currencies = require('./routes/states_currencies');
+const states_languages = require('./routes/states_languages');
+const states_other_names = require('./routes/states_other_names');
+const states_regional_blocs = require('./routes/states_regional_blocs');
+const states_time_zones = require('./routes/states_time_zones');
+const states_translations = require('./routes/states_translations');
+const states = require('./routes/states');
+//
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database');
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var jwt = require('jsonwebtoken');
 const app = express();
-app.set('secretKey', process.env.JWT_SECRET);//dWR3453%$$@$$^57gb#@S2w121x;
+app.set('secretKey', process.env.JWT_SECRET);
 app.set('smtp_user', process.env.SMTP_USER);
 app.set('smtp_pass', process.env.SMTP_PASS);
 console.log(process.env.SMTP_USER);
@@ -24,7 +37,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
 // API private routes
 app.use('/api/v1/ola', validateUser, locations);
+//new private routes
+app.use('/api/v1/blocksothernames', validateUser, blocs_other_names);
+app.use('/api/v1/borders', validateUser, states_borders);
+app.use('/api/v1/codes', validateUser, states_calling_codes);
+app.use('/api/v1/currencies', validateUser, states_currencies);
+app.use('/api/v1/languages', validateUser, states_languages);
 
+app.use('/api/v1/names', validateUser, states_other_names);
+app.use('/api/v1/blocs', validateUser, states_regional_blocs);
+app.use('/api/v1/timezones', validateUser, states_time_zones);
+app.use('/api/v1/translations', validateUser, states_translations);
+app.use('/api/v1/states', validateUser, states);
+//ico
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
 });

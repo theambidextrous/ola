@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const olaController = require('../app/api/controllers/states_regional_blocs');
+//get
+router.get('/', olaController.getAll);
+router.get('/:id', olaController.getById);
+router.get('/blocs/:alpha2Code', olaController.getByCountry);
+//post
+router.post('/create', olaController.create);
+module.exports = router;
