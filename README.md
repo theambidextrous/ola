@@ -1,5 +1,3 @@
-
-
 FORMAT: 1A
 HOST: http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/
 
@@ -8,6 +6,23 @@ HOST: http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/
 OLAPI is a simple RESTful API developed by [Iddriss O. Juma](http://olapi-openlocationsapi.apps.us-east-1.starter.openshift-online.com/about) using Nodejs+Mongodb. It enables to 
 query for locations i.e. cities, countries, villages, hotels, rivers, mountains etc via 
 simple REST get/post requests.
+
+## Open locations apiv1 Features
+* Get list of cities accross the world
+* Get location estimated ppulation
+* Elevation in feet
+* Latitudes 
+* Longitudes
+* Countries
+* Country timezones
+* Country flags links
+* Country calling/dialing codes
+* Country languages/translations
+* Country capital cities
+* Regional trade unions/ blocs
+* Country's border states
+* many more coming...
+
 
 OLAPI is opensource, it is released under ISC/BSD license. have fun!
 
@@ -26,12 +41,15 @@ Open Locations API is hosted by Redhat's **Openshift Online** here
     
         Content-type: application/json
         
-    +Body 
+    + Body 
+    
         {
-            "name" : "Your full name",
-            "email" : "avalidmail@yourmailer.com",
-            "phone" : "yourvalidphoneforapikeysms",
-            "password" : "auniquepassword"
+        
+        "name" : "Your full name",
+        "email" : "avalidmail@yourmailer.com",
+        "phone" : "yourvalidphoneforapikeysms",
+        "password" : "auniquepassword"
+        
         }
         
 + Response 200 (application/json)
@@ -52,13 +70,18 @@ your authentication request is successful, you will get a token, which you will 
 + Endpoint [/api/v1/users/authenticate]
 + Method [post]
 + Request (application/json)
+
     +Headers 
+    
         Content-type: application/json
+        
     +Body 
     
         {
+        
             "consumer_key" : "yourconsumerkeysentviasmsandemail",
             "secret" : "youruniquepasswordthatyousignedupwith"
+            
         }
 
 + Response 201 (application/json)
@@ -85,6 +108,7 @@ Now that you have access, let us start the play!
 + Endpoint [/api/v1/ola]
 + Method [get]
 + Request (application/json)
+
     +Headers 
     
         skylar-token: 'yourtokenhere'
@@ -125,8 +149,10 @@ Now that you have access, let us start the play!
 
     + Headers 
     
+    
         skylar-token: 'yourtokenhere'
         Content-type: application/json
+        
         
 + Response 200 (application/json)
 
@@ -369,3 +395,60 @@ Now that you have access, let us start the play!
                     ]
                 }
             }
+            
+### Get Countries
++ Endpoint [/api/v1/states/
++ Method [get]
++ Request (application/json)
+
+    + Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+    -- a json data
+    
+### Get Country by id(much more details)
++ Endpoint [/api/v1/states/{_id}
++ Method [get]
++ Request (application/json)
+
+    + Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+    -- a json data
+    
+### Get Country by country code
++ Endpoint [/api/v1/states/state{code e.g. KE}
++ Method [get]
++ Request (application/json)
+
+    + Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+    -- a json data
