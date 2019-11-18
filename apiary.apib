@@ -41,12 +41,15 @@ Open Locations API is hosted by Redhat's **Openshift Online** here
     
         Content-type: application/json
         
-    +Body 
+    + Body 
+    
         {
-            "name" : "Your full name",
-            "email" : "avalidmail@yourmailer.com",
-            "phone" : "yourvalidphoneforapikeysms",
-            "password" : "auniquepassword"
+        
+        "name" : "Your full name",
+        "email" : "avalidmail@yourmailer.com",
+        "phone" : "yourvalidphoneforapikeysms",
+        "password" : "auniquepassword"
+        
         }
         
 + Response 200 (application/json)
@@ -67,13 +70,18 @@ your authentication request is successful, you will get a token, which you will 
 + Endpoint [/api/v1/users/authenticate]
 + Method [post]
 + Request (application/json)
+
     +Headers 
+    
         Content-type: application/json
+        
     +Body 
     
         {
+        
             "consumer_key" : "yourconsumerkeysentviasmsandemail",
             "secret" : "youruniquepasswordthatyousignedupwith"
+            
         }
 
 + Response 201 (application/json)
@@ -100,6 +108,7 @@ Now that you have access, let us start the play!
 + Endpoint [/api/v1/ola]
 + Method [get]
 + Request (application/json)
+
     +Headers 
     
         skylar-token: 'yourtokenhere'
@@ -140,8 +149,10 @@ Now that you have access, let us start the play!
 
     + Headers 
     
+    
         skylar-token: 'yourtokenhere'
         Content-type: application/json
+        
         
 + Response 200 (application/json)
 
@@ -384,3 +395,41 @@ Now that you have access, let us start the play!
                     ]
                 }
             }
+            
+### Get Countries
++ Endpoint [/api/v1/states/
++ Method [get]
++ Request (application/json)
+
+    + Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+    -- a json data
+    
+### Get Country by id(much more details)
++ Endpoint [/api/v1/states/{_id}
++ Method [get]
++ Request (application/json)
+
+    + Headers 
+    
+        skylar-token: 'yourtokenhere'
+        Content-type: application/json
+        
++ Response 200 (application/json)
+
+    + Headers
+
+            Content-type: application/json
+
+    + Body
+    -- a json data
