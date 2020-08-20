@@ -29,7 +29,7 @@
   "homepage": "https://github.com/theambidextrous/nodejs-ex#readme",
   "dependencies": {
     "app-root-path": "^3.0.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "ejs": "^2.7.1",
     "emailjs": "^2.2.0",
